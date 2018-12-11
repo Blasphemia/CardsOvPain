@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Drawing;
 
 
 
@@ -74,18 +75,24 @@ namespace DeckOfCards
             switch (cardsuit)
             {
                 case Suit.Clubs:
-
+                    
                     suit = "♣";
+                    
                     break;
                 case Suit.Diamonds:
-                   
+                    
                     suit = "♦";
+                    
                     break;
                 case Suit.Hearts:
+                   
                     suit = "♥";
+                    
                     break;
                 case Suit.Spades:
+                   
                     suit = "♠";
+                   
                     break;
             }
             
@@ -100,18 +107,63 @@ namespace DeckOfCards
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Card card = new Card();
 
-           
-                Console.WriteLine("|||||||||||||||");
-                Console.WriteLine($"|{card.CardSuit(Suit)}{card.CardsRank(Rank)}           |");
+            if ((card.CardSuit(Suit) == "♦")|| (card.CardSuit(Suit) == "♥")) 
+            {
+                //Console.WriteLine("|||||||||||||||");
+                //Console.WriteLine($"|{card.CardSuit(Suit)}{card.CardsRank(Rank)}           |");
+                //for (int i = 0; i < 8; i++)
+                //{
+                //    Console.WriteLine($"|             |");
+                //}
+                //Console.WriteLine($"|           {card.CardSuit(Suit)}{card.CardsRank(Rank)}|");
+                //Console.WriteLine($"|||||||||||||||\n");
+                //Console.WriteLine("\n");
+                var orirginalColor = Console.BackgroundColor;
+                Console.BackgroundColor = ConsoleColor.White;
+                Console.WriteLine("               ");
+                Console.Write(" ");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write($"{card.CardSuit(Suit)}{card.CardsRank(Rank)}");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("            ");
                 for (int i = 0; i < 8; i++)
                 {
                     Console.WriteLine($"|             |");
                 }
-                Console.WriteLine($"|           {card.CardSuit(Suit)}{card.CardsRank(Rank)}|");
-                Console.WriteLine($"|||||||||||||||\n");
-            Console.WriteLine("\n");
+                Console.Write("|           ");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"{card.CardSuit(Suit)}{card.CardsRank(Rank)} ");
+               
+                Console.WriteLine($"               \n");
+                Console.BackgroundColor = orirginalColor;
+                Console.WriteLine("\n");
+                
+            }
+            if ((card.CardSuit(Suit) == "♣") || (card.CardSuit(Suit) == "♠"))
+            {
+                
+                var orirginalColor = Console.BackgroundColor;
+                Console.BackgroundColor = ConsoleColor.White;
+                Console.WriteLine("               ");
+                Console.Write(" ");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.Write($"{card.CardSuit(Suit)}{card.CardsRank(Rank)}");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("            ");
+                for (int i = 0; i < 8; i++)
+                {
+                    Console.WriteLine($"|             |");
+                }
+                Console.Write("|           ");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine($"{card.CardSuit(Suit)}{card.CardsRank(Rank)} ");
 
+                Console.WriteLine($"               \n");
+                Console.BackgroundColor = orirginalColor;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("\n");
 
+            }
         }
 
     }

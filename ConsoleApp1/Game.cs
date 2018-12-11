@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Drawing;
 
 
 namespace DeckOfCards
@@ -35,9 +36,9 @@ namespace DeckOfCards
         {
             
             Console.WriteLine("Now we shuffle the deck...  \n");
-            Thread.Sleep(1000);
-            Console.WriteLine("Done!");
-            Thread.Sleep(1000);
+            Thread.Sleep(800);
+            Console.WriteLine("Done! \n");
+            Thread.Sleep(500);
             var sortedCards = cards.OrderBy(n => Guid.NewGuid());
 
             return sortedCards.ToList();
@@ -45,43 +46,46 @@ namespace DeckOfCards
 
         public void Print5Cards(List<Card> cards)
         {
-            Thread.Sleep(1000);
+            Thread.Sleep(800);
             Console.WriteLine("Hmm... The first five cards in the deck is: \n");
-            Thread.Sleep(1000);
+            Thread.Sleep(800);
             var printing5cards = cards.Take(5).ToList();
             foreach (var i in printing5cards)
             {
                 i.PrintCards();
             }
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
 
         }
 
         public void PrintOlderThenTen(List<Card> cards)
         {
-            Thread.Sleep(1000);
-            Console.WriteLine("All cards with rank over then ten");
-            Thread.Sleep(1000);
+            Thread.Sleep(800);
+            Console.WriteLine("All cards with rank over then Ten: \n");
+            Thread.Sleep(800);
             var after10 = cards.Where(x => x.Rank > Rank.Ten);
            
             foreach (var i in after10)
             {
                 i.PrintCards();
             }
-
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
         }
 
 
         public void PrintAllClubs(List<Card> cards)
         {
-            Thread.Sleep(1000);
-            Console.WriteLine("And noooow!.. Watch the magic)))) All club cards in the deck :)");
-            Thread.Sleep(1000);
+            Thread.Sleep(800);
+            Console.WriteLine("And noooow!.. Watch the magic)))) All club cards in the deck: \n");
+            Thread.Sleep(800);
             var clubs = cards.Where(x => x.Suit == Suit.Clubs).ToList();
             foreach (var i in clubs)
             {
                 i.PrintCards();
             }
-
+            
         }
 
     }

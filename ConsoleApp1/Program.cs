@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Drawing;
 
 
 namespace DeckOfCards
@@ -20,8 +21,14 @@ namespace DeckOfCards
             game.Print5Cards(item);
             game.PrintOlderThenTen(item);
             game.PrintAllClubs(item);
-            Console.ReadLine();
 
+
+
+            Console.ReadKey();
+
+
+
+            
 
         }
     }
