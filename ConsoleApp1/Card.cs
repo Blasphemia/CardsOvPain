@@ -106,36 +106,36 @@ namespace DeckOfCards
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Card card = new Card();
-
+            string topAndButtom = "               ";
+            string side = "            ";
+            if (card.CardsRank(Rank) == "10")
+            {
+                side = side.Substring(1);
+            }
             if ((card.CardSuit(Suit) == "♦")|| (card.CardSuit(Suit) == "♥")) 
             {
-                //Console.WriteLine("|||||||||||||||");
-                //Console.WriteLine($"|{card.CardSuit(Suit)}{card.CardsRank(Rank)}           |");
-                //for (int i = 0; i < 8; i++)
-                //{
-                //    Console.WriteLine($"|             |");
-                //}
-                //Console.WriteLine($"|           {card.CardSuit(Suit)}{card.CardsRank(Rank)}|");
-                //Console.WriteLine($"|||||||||||||||\n");
-                //Console.WriteLine("\n");
+
+               
+
                 var orirginalColor = Console.BackgroundColor;
                 Console.BackgroundColor = ConsoleColor.White;
-                Console.WriteLine("               ");
+                Console.WriteLine(topAndButtom);
                 Console.Write(" ");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write($"{card.CardSuit(Suit)}{card.CardsRank(Rank)}");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("            ");
+                Console.WriteLine(side);
                 for (int i = 0; i < 8; i++)
                 {
                     Console.WriteLine($"|             |");
                 }
-                Console.Write("|           ");
+                Console.Write(side);
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"{card.CardSuit(Suit)}{card.CardsRank(Rank)} ");
                
-                Console.WriteLine($"               \n");
+                Console.WriteLine($"{topAndButtom}\n");
                 Console.BackgroundColor = orirginalColor;
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("\n");
                 
             }
@@ -144,21 +144,21 @@ namespace DeckOfCards
                 
                 var orirginalColor = Console.BackgroundColor;
                 Console.BackgroundColor = ConsoleColor.White;
-                Console.WriteLine("               ");
+                Console.WriteLine($"{topAndButtom}");
                 Console.Write(" ");
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.Write($"{card.CardSuit(Suit)}{card.CardsRank(Rank)}");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("            ");
+                Console.WriteLine(side);
                 for (int i = 0; i < 8; i++)
                 {
                     Console.WriteLine($"|             |");
                 }
-                Console.Write("|           ");
+                Console.Write(side);
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine($"{card.CardSuit(Suit)}{card.CardsRank(Rank)} ");
 
-                Console.WriteLine($"               \n");
+                Console.WriteLine($"{topAndButtom}\n");
                 Console.BackgroundColor = orirginalColor;
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("\n");
