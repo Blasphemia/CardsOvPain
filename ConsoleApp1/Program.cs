@@ -3,13 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
-namespace ConsoleApp1
+
+namespace DeckOfCards
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+
+        public static void Main(string[] args)
         {
+
+            Game game = new Game();
+            var item = game.MakingTheDeckOfCards();
+            item = game.SortTheDeck(item);
+            game.Print5Cards(item);
+            game.PrintOlderThenTen(item);
+            game.PrintAllClubs(item);
+            Console.ReadLine();
+
+
         }
     }
 }
